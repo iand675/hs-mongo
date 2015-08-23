@@ -1,6 +1,6 @@
 #include <bson.h>
 #include <bindings.dsl.h>
-module Data.Bson.Foreign.Json where
+module Data.Bson.Foreign.Keys where
 #strict_import
 import Data.Bson.Foreign.Types
 

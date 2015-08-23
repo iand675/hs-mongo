@@ -1,11 +1,10 @@
 module Data.Bson.Foreign.Md5 where
 #include <bson.h>
 #include <bindings.dsl.h>
-module Data.Bson.Foreign.Json where
 #strict_import
 import Data.Bson.Foreign.Types
 
-#starttype struct bson_md5_t
+#starttype bson_md5_t
 #array_field count, Word32
 #array_field abcd, Word32
 #array_field buf, Word8

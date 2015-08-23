@@ -3,13 +3,14 @@ import Data.Int
 import Data.Word
 import Foreign
 import Foreign.C
+import System.Posix.Types
 #include <bson.h>
 #include <bindings.dsl.h> 
 
-type SSize = HTYPE_SSIZE_T
+type SSize = CSsize
 type C'bson_unichar_t = Word32
 
-#integral_t enum bson_context_flags_t
+#integral_t bson_context_flags_t
 #num BSON_CONTEXT_NONE
 #num BSON_CONTEXT_THREAD_SAFE
 #num BSON_CONTEXT_DISABLE_HOST_CACHE
@@ -20,7 +21,7 @@ type C'bson_unichar_t = Word32
 
 #opaque_t bson_context_t
 
-#starttype struct bson_t
+#starttype bson_t
 #field flags , Word32
 #field len , Word32
 #field padding , Ptr Word8
@@ -28,18 +29,18 @@ type C'bson_unichar_t = Word32
 
 -- TODO do something with BSON_INITIALIZER
 
-#starttype struct bson_oid_t
+#starttype bson_oid_t
 #field bytes , Ptr Word8
 #stoptype
 
-#integral_t enum bson_validate_flags_t
+#integral_t bson_validate_flags_t
 #num BSON_VALIDATE_NONE
 #num BSON_VALIDATE_UTF8
 #num BSON_VALIDATE_DOLLAR_KEYS
 #num BSON_VALIDATE_DOT_KEYS
 #num BSON_VALIDATE_UTF8_ALLOW_NULL
 
-#integral_t enum bson_type_t
+#integral_t bson_type_t
 #num BSON_TYPE_EOD
 #num BSON_TYPE_DOUBLE
 #num BSON_TYPE_UTF8
@@ -62,7 +63,7 @@ type C'bson_unichar_t = Word32
 #num BSON_TYPE_MAXKEY
 #num BSON_TYPE_MINKEY
 
-#integral_t enum bson_subtype_t
+#integral_t bson_subtype_t
 #num BSON_SUBTYPE_BINARY
 #num BSON_SUBTYPE_FUNCTION
 #num BSON_SUBTYPE_UUID
@@ -70,7 +71,7 @@ type C'bson_unichar_t = Word32
 #num BSON_SUBTYPE_USER
 
 
-#starttype struct bson_value_t
+#starttype bson_value_t
 #field value_type , <bson_type_t>
 #field padding , Int32
 #field value.v_oid , <bson_oid_t>
@@ -101,7 +102,7 @@ type C'bson_unichar_t = Word32
 #field value.v_symbol.len , Word32
 #stoptype
 
-#starttype struct bson_iter_t
+#starttype bson_iter_t
 #field raw, Ptr Word8
 #field len , Word32
 #field off , Word32
@@ -116,10 +117,12 @@ type C'bson_unichar_t = Word32
 #field value , <bson_value_t>
 #stoptype
 
-#starttype struct bson_reader_t
+#starttype bson_reader_t
 #field type, Word32
 #stoptype
 
+-- TODO
+{-
 #starttype struct bson_visitor_t
 visit_before
 visit_after
@@ -146,8 +149,9 @@ visit_maxkey
 visit_minkey
 padding
 #stoptype
+-}
 
-#starttype struct bson_error_t
+#starttype bson_error_t
 #field domain , Word32
 #field code , Word32
 #field message , CString

@@ -1,6 +1,6 @@
 #include <bson.h>
 #include <bindings.dsl.h>
-module Data.Bson.Foreign.Error where
+module Data.Bson.Foreign.Iter where
 #strict_import
 import Data.Bson.Foreign.Types
 
@@ -97,7 +97,7 @@ import Data.Bson.Foreign.Types
 
 #ccall bson_iter_overwrite_double , Ptr <bson_iter_t> -> Double -> IO ()
 
-#ccall bson_iter_overwrite_bool -> Ptr <bson_iter_t> -> Int8 -> IO ()
+#ccall bson_iter_overwrite_bool , Ptr <bson_iter_t> -> Int8 -> IO ()
 
-#ccall bson_iter_visit_all -> Ptr <bson_iter_t> -> Ptr <bson_visitor_t> -> Ptr () -> IO Int8
+#ccall bson_iter_visit_all , Ptr <bson_iter_t> -> Ptr <bson_visitor_t> -> Ptr () -> IO Int8
 

@@ -2,6 +2,7 @@ module Database.MongoDB.Foreign.ReadPrefs where
 import Foreign
 import Foreign.C
 
+import Data.Bson.Foreign.Types
 import Database.MongoDB.Foreign.URI
 
 #include <mongoc.h>

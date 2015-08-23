@@ -6,7 +6,7 @@ import Data.Bson.Foreign.Types
 
 #opaque_t bson_json_reader_t
 
-#integral_t enum bson_json_error_code_t
+#integral_t bson_json_error_code_t
 #num BSON_JSON_ERROR_READ_CORRUPT_JS
 #num BSON_JSON_ERROR_READ_INVALID_PARAM
 #num BSON_JSON_ERROR_READ_CB_FAILURE

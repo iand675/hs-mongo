@@ -5,6 +5,8 @@ import Data.Word
 import Foreign
 import Foreign.C
 
+import Database.MongoDB.Foreign.Cursor
+import Database.MongoDB.Foreign.ReadPrefs
 import Database.MongoDB.Foreign.WriteConcern
 
 #include <mongoc.h>

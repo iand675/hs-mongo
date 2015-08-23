@@ -1,12 +1,17 @@
+module Data.Bson.Foreign.Memory where
+#include <bson.h>
+#include <bindings.dsl.h>
+#strict_import
+import Data.Bson.Foreign.Types
 
-#callback_t bson_realloc_func ,
+#callback_t bson_realloc_func , Ptr () -> CSize -> Ptr () -> IO (Ptr ())
 
-#starttype struct bson_mem_vtable_t
-#field malloc ,
-#field calloc ,
-#field realloc ,
-#field free ,
-#array_field padding , ()
+#starttype bson_mem_vtable_t
+-- #field malloc ,
+-- #field calloc ,
+-- #field realloc ,
+-- #field free ,
+-- #array_field padding , ()
 #stoptype
 
 #ccall bson_mem_set_vtable , Ptr <bson_mem_vtable_t> -> IO ()

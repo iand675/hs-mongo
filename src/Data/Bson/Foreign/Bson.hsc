@@ -54,4 +54,62 @@ import Data.Bson.Foreign.Types
 
 #ccall bson_array_as_json , Ptr <bson_t> -> Ptr CSize -> IO CString
 
-#ccall bson_append_value
+#ccall bson_append_value , Ptr <bson_t> -> CString -> CInt -> Ptr <bson_value_t> -> IO Int8
+
+#ccall bson_append_array , Ptr <bson_t> -> CString -> CInt -> Ptr <bson_t> -> IO Int8
+
+#ccall bson_append_binary , Ptr <bson_t> -> CString -> CInt -> <bson_subtype_t> -> Ptr Word8 -> Word32 -> IO Int8
+
+#ccall bson_append_bool , Ptr <bson_t> -> CString -> CInt -> Int8 -> IO Int8
+
+#ccall bson_append_code , Ptr <bson_t> -> CString -> CInt -> CString -> IO Int8
+
+#ccall bson_append_code_with_scope , Ptr <bson_t> -> CString -> CInt -> CString -> Ptr <bson_t> -> IO Int8
+
+#ccall bson_append_dbpointer , Ptr <bson_t> -> CString -> CInt -> CString -> Ptr <bson_oid_t> -> IO Int8
+
+#ccall bson_append_double , Ptr <bson_t> -> CString -> CInt -> Double -> IO Int8
+
+#ccall bson_append_document , Ptr <bson_t> -> CString -> CInt -> Ptr <bson_t> -> IO Int8
+
+#ccall bson_append_document_begin , Ptr <bson_t> -> CString -> CInt -> Ptr <bson_t> -> IO Int8
+
+#ccall bson_append_document_end , Ptr <bson_t> -> Ptr <bson_t> -> IO Int8
+
+#ccall bson_append_array_begin , Ptr <bson_t> -> CString -> CInt -> Ptr <bson_t> -> IO Int8
+
+#ccall bson_append_array_end , Ptr <bson_t> -> Ptr <bson_t> -> IO Int8
+
+#ccall bson_append_int32 , Ptr <bson_t> -> CString -> CInt -> Int32 -> IO Int8
+
+#ccall bson_append_int64 , Ptr <bson_t> -> CString -> CInt -> Int64 -> IO Int8
+
+#ccall bson_append_iter , Ptr <bson_t> -> CString -> CInt -> Ptr <bson_iter_t> -> IO Int8
+
+#ccall bson_append_minkey , Ptr <bson_t> -> CString -> CInt -> IO Int8
+
+#ccall bson_append_maxkey , Ptr <bson_t> -> CString -> CInt -> IO Int8
+
+#ccall bson_append_null , Ptr <bson_t> -> CString -> CInt -> IO Int8
+
+#ccall bson_append_oid , Ptr <bson_t> -> CString -> CInt -> Ptr <bson_oid_t> -> IO Int8
+
+#ccall bson_append_regex , Ptr <bson_t> -> CString -> CInt -> CString -> CString -> IO Int8
+
+#ccall bson_append_utf8 , Ptr <bson_t> -> CString -> CInt -> CString -> CInt -> IO Int8
+
+#ccall bson_append_symbol , Ptr <bson_t> -> CString -> CInt -> CString -> CInt -> IO Int8
+
+#ccall bson_append_time_t , Ptr <bson_t> -> CString -> CInt -> CTime -> IO Int8
+
+-- #ccall bson_append_timeval ,
+
+#ccall bson_append_date_time , Ptr <bson_t> -> CString -> CInt -> Int64 -> IO Int8
+
+#ccall bson_append_now_utc , Ptr <bson_t> -> CString -> CInt -> IO Int8
+
+#ccall bson_append_timestamp , Ptr <bson_t> -> CString -> CInt -> Word32 -> Word32 -> IO Int8
+
+#ccall bson_append_undefined , Ptr <bson_t> -> CString -> CInt -> IO Int8
+
+#ccall bson_concat , Ptr <bson_t> -> Ptr <bson_t> -> IO Int8

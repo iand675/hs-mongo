@@ -1,18 +1,13 @@
 module Database.MongoDB.Foreign.Matcher where
-
-
 #include <mongoc.h>
-{#context lib = "mongo" prefix = "mongoc_" #}
+#include <bindings.dsl.h>
+#strict_import
+import Data.Bson.Foreign.Types
 
-{#pointer *mongoc_matcher_t as Matcher newtype #}
+#opaque_t mongoc_matcher_t
 
-{#fun matcher_new
-  { `Bson',
-    `BsonError' } -> `Matcher' #}
+#ccall mongoc_matcher_new , Ptr <bson_t> -> Ptr <bson_error_t> -> IO (Ptr <mongoc_matcher_t>)
 
-{#fun matcher_match
-  { `Matcher',
-    `Bson' } -> `Bool' #}
+#ccall mongoc_matcher_match , Ptr <mongoc_matcher_t> -> Ptr <bson_t> -> IO Int8
 
-{#fun matcher_destroy
-  { `Matcher' } -> `()' #}
+#ccall mongoc_matcher_destroy , Ptr <mongoc_matcher_t> -> IO ()

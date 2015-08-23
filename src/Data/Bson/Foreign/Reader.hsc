@@ -1,8 +1,8 @@
-module Data.Bson.Foreign.Value where
-import Foreign
-import Foreign.C
+module Data.Bson.Foreign.Reader where
 #include <bson.h>
-#include <bindings.dsl.h> 
+#include <bindings.dsl.h>
+#strict_import
+import Data.Bson.Foreign.Types
 
 
 #callback_t bson_reader_read_func_t , Ptr () -> Ptr () -> CSize -> IO SSize
