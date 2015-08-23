@@ -49,11 +49,7 @@ library
                        Database.MongoDB.Foreign.URI,
                        Database.MongoDB.Foreign.Version,
                        Database.MongoDB.Foreign.WriteConcern
-  -- other-modules:       
-  -- other-extensions:    
-  extra-libraries:     mongoc-1.0, bson-1.0
+  pkgconfig-depends:   libmongoc-1.0, libbson-1.0
   build-depends:       base >=4.8 && <4.9, bytestring, text, bson, bindings-DSL
-  include-dirs:        /usr/local/include/libmongoc-1.0, /usr/local/include/libbson-1.0
-  extra-lib-dirs:      /usr/local/lib
   hs-source-dirs:      src
   default-language:    Haskell2010

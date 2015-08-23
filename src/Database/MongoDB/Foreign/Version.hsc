@@ -13,4 +13,3 @@ import Foreign.C
 
 #num MONGOC_VERSION_HEX
 
--- #cinline MONGOC_CHECK_VERSION , Word8 -> Word8 -> Word8 -> Word32
