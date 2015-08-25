@@ -121,35 +121,60 @@ type C'bson_unichar_t = Word32
 #field type, Word32
 #stoptype
 
+type VisitSimple a = Ptr C'bson_iter_t -> CString -> a -> Ptr () -> IO Int8
+
+#callback_t visit_before_fun , Ptr <bson_iter_t> -> CString -> Ptr () -> IO Int8
+#callback_t visit_after_fun , Ptr <bson_iter_t> -> CString -> Ptr () -> IO Int8
+#callback_t visit_corrupt_fun , Ptr <bson_iter_t> -> Ptr () -> IO ()
+#callback_t visit_double_fun , VisitSimple Double
+#callback_t visit_utf8_fun , Ptr <bson_iter_t> -> CString -> CSize -> CString -> Ptr () -> IO Int8
+#callback_t visit_document_fun , VisitSimple (Ptr <bson_t>)
+#callback_t visit_array_fun , VisitSimple (Ptr <bson_t>)
+#callback_t visit_binary_fun , Ptr <bson_iter_t> -> CString -> <bson_subtype_t> -> CSize -> Ptr Word8 -> Ptr () -> IO Int8
+#callback_t visit_undefined_fun , Ptr <bson_iter_t> -> CString -> Ptr () -> IO Int8
+#callback_t visit_oid_fun , VisitSimple (Ptr <bson_oid_t>)
+#callback_t visit_bool_fun , VisitSimple Int8
+#callback_t visit_date_time_fun , VisitSimple Int64
+#callback_t visit_null_fun , Ptr <bson_iter_t> -> CString -> Ptr () -> IO Int8
+#callback_t visit_regex_fun , Ptr <bson_iter_t> -> CString -> CString -> CString -> Ptr () -> IO Int8
+#callback_t visit_dbpointer_fun , Ptr <bson_iter_t> -> CString -> CSize -> CString -> Ptr <bson_oid_t> -> IO Int8
+#callback_t visit_code_fun , Ptr <bson_iter_t> -> CString -> CSize -> CString -> Ptr () -> IO Int8
+#callback_t visit_symbol_fun , Ptr <bson_iter_t> -> CString -> CSize -> CString -> Ptr () -> IO Int8
+#callback_t visit_codewscope_fun , Ptr <bson_iter_t> -> CString -> CSize -> CString -> Ptr <bson_t> -> Ptr () -> IO Int8
+#callback_t visit_int32_fun , VisitSimple Int32
+#callback_t visit_timestamp_fun , Ptr <bson_iter_t> -> CString -> Word32 -> Word32 -> Ptr () -> IO Int8
+#callback_t visit_int64_fun , VisitSimple Int64
+#callback_t visit_maxkey_fun , Ptr <bson_iter_t> -> CString -> Ptr () -> IO Int8
+#callback_t visit_minkey_fun , Ptr <bson_iter_t> -> CString -> Ptr () -> IO Int8
+
 -- TODO
-{-
-#starttype struct bson_visitor_t
-visit_before
-visit_after
-visit_corrupt
-visit_double
-visit_utf8
-visit_document
-visit_array
-visit_binary
-visit_undefined
-visit_oid
-visit_bool
-visit_date_time
-visit_null
-visit_regex
-visit_dbpointer
-visit_code
-visit_symbol
-visit_codewscope
-visit_int32
-visit_timestamp
-visit_int64
-visit_maxkey
-visit_minkey
-padding
+#starttype bson_visitor_t
+#field visit_before , <visit_before_fun>
+#field visit_after , <visit_after_fun>
+#field visit_corrupt , <visit_corrupt_fun>
+#field visit_double , <visit_double_fun>
+#field visit_utf8 , <visit_utf8_fun>
+#field visit_document , <visit_document_fun>
+#field visit_array , <visit_array_fun>
+#field visit_binary , <visit_binary_fun>
+#field visit_undefined , <visit_undefined_fun>
+#field visit_oid , <visit_oid_fun>
+#field visit_bool , <visit_bool_fun>
+#field visit_date_time , <visit_date_time_fun>
+#field visit_null , <visit_null_fun>
+#field visit_regex , <visit_regex_fun>
+#field visit_dbpointer , <visit_dbpointer_fun>
+#field visit_code , <visit_code_fun>
+#field visit_symbol , <visit_symbol_fun>
+#field visit_codewscope , <visit_codewscope_fun>
+#field visit_int32 , <visit_int32_fun>
+#field visit_timestamp , <visit_timestamp_fun>
+#field visit_int64 , <visit_int64_fun>
+#field visit_maxkey , <visit_maxkey_fun>
+#field visit_minkey , <visit_minkey_fun>
+#array_field padding , Word8
 #stoptype
--}
+
 
 #starttype bson_error_t
 #field domain , Word32

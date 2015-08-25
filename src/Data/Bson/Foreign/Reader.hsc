@@ -3,7 +3,7 @@ module Data.Bson.Foreign.Reader where
 #include <bindings.dsl.h>
 #strict_import
 import Data.Bson.Foreign.Types
-
+import System.Posix.Types
 
 #callback_t bson_reader_read_func_t , Ptr () -> Ptr () -> CSize -> IO SSize
 
@@ -26,7 +26,7 @@ import Data.Bson.Foreign.Types
 
 #ccall bson_reader_read , Ptr <bson_reader_t> -> Ptr Int8 -> IO (Ptr <bson_t>)
 
-#ccall bson_reader_tell , Ptr <bson_reader_t> -> IO <off_t>
+#ccall bson_reader_tell , Ptr <bson_reader_t> -> IO COff
 
 
 

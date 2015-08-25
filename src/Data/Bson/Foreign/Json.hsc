@@ -3,6 +3,7 @@
 module Data.Bson.Foreign.Json where
 #strict_import
 import Data.Bson.Foreign.Types
+import System.Posix.Types
 
 #opaque_t bson_json_reader_t
 

@@ -3,7 +3,8 @@
 module Data.Bson.Foreign.Bson where
 #strict_import
 import Data.Bson.Foreign.Types
-
+import Data.Bson.Foreign.Memory
+import System.Posix.Types
 -- bson_empty
 -- bson_empty0
 -- bson_clear

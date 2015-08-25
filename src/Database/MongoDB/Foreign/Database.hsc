@@ -5,17 +5,15 @@ import Data.Word
 import Foreign
 import Foreign.C
 
+import Data.Bson.Foreign.Types
+import Database.MongoDB.Foreign.Collection
 import Database.MongoDB.Foreign.Cursor
+import Database.MongoDB.Foreign.Flags
 import Database.MongoDB.Foreign.ReadPrefs
 import Database.MongoDB.Foreign.WriteConcern
 
 #include <mongoc.h>
 #include <bindings.dsl.h> 
-
--- TODO
-#opaque_t bson_error_t
-#opaque_t bson_t
-#opaque_t mongoc_query_flags_t
 
 #opaque_t mongoc_database_t
 

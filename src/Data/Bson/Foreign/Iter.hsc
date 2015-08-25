@@ -4,7 +4,7 @@ module Data.Bson.Foreign.Iter where
 #strict_import
 import Data.Bson.Foreign.Types
 
-#ccall bson_iter_value , Ptr <bson_iter_t> -> IO (Ptr <bson_iter_value>)
+#ccall bson_iter_value , Ptr <bson_iter_t> -> IO (Ptr <bson_value_t>)
 
 -- #ccall bson_iter_utf8_len_unsafe
 
