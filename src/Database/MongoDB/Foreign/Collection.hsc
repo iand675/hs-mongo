@@ -64,6 +64,8 @@ import Database.MongoDB.Foreign.WriteConcern
 
 #ccall mongoc_collection_get_write_concern , Ptr <mongoc_collection_t> -> IO (Ptr <mongoc_write_concern_t>)
 
+#ccall mongoc_collection_set_write_concern , Ptr <mongoc_collection_t> -> Ptr <mongoc_write_concern_t> -> IO ()
+
 #ccall mongoc_collection_get_name , Ptr <mongoc_collection_t> -> Ptr <mongoc_write_concern_t> -> IO CString
 
 #ccall mongoc_collection_get_last_error , Ptr <mongoc_collection_t> -> IO (Ptr <bson_t>)

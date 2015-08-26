@@ -30,7 +30,7 @@ type C'bson_unichar_t = Word32
 -- TODO do something with BSON_INITIALIZER
 
 #starttype bson_oid_t
-#field bytes , Ptr Word8
+#array_field bytes , Word8
 #stoptype
 
 #integral_t bson_validate_flags_t

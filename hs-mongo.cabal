@@ -56,6 +56,7 @@ library
                        Data.Bson.Foreign.Iter,
                        Data.Bson.Foreign.Json,
                        Data.Bson.Foreign.Keys,
+                       Data.Bson.Foreign.Oid,
                        Data.Bson.Foreign.Md5,
                        Data.Bson.Foreign.Memory,
                        Data.Bson.Foreign.Reader,
@@ -63,6 +64,6 @@ library
                        Data.Bson.Foreign.Value,
                        Data.Bson.Foreign.Version
   pkgconfig-depends:   libmongoc-1.0, libbson-1.0
-  build-depends:       base >=4.8 && <4.9, bytestring, text, bson, bindings-DSL
+  build-depends:       base >=4.8 && <4.9, bytestring, text, bson, bindings-DSL, StateVar
   hs-source-dirs:      src
   default-language:    Haskell2010
